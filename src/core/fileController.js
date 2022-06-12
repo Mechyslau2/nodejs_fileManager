@@ -1,6 +1,17 @@
 import { EOL } from "os";
-import { add, cat, cd, ls, up, cp, rn, mv, rm } from "../commands/index.js";
-import { os } from '../commands/os/os.js';
+import {
+  add,
+  cat,
+  cd,
+  ls,
+  up,
+  cp,
+  rn,
+  mv,
+  rm,
+  hash,
+} from "../commands/index.js";
+import { os } from "../commands/os/os.js";
 
 const COMMANDS = {
   cat: (url, file) => cat(url, file),
@@ -13,6 +24,7 @@ const COMMANDS = {
   rn: (url, params) => rn(url, params),
   rm: (url, removeFilepath) => rm(url, removeFilepath),
   os: (url, params) => os(url, params),
+  hash: (url, filePath) => hash(url, filePath),
 };
 
 const runCommand = (command, url, params) => {
