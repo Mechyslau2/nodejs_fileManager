@@ -10,6 +10,8 @@ import {
   mv,
   rm,
   hash,
+  compress,
+  decompress,
 } from "../commands/index.js";
 import { os } from "../commands/os/os.js";
 
@@ -25,6 +27,8 @@ const COMMANDS = {
   rm: (url, removeFilepath) => rm(url, removeFilepath),
   os: (url, params) => os(url, params),
   hash: (url, filePath) => hash(url, filePath),
+  compress: (url, params) => compress(url, params),
+  decompress: (url, params) => decompress(url, params),
 };
 
 const runCommand = (command, url, params) => {

@@ -8,3 +8,5 @@ export { rn } from "./rn.js";
 export { mv } from "./mv.js";
 export { rm } from "./rm.js";
 export { hash } from "./hash.js";
+export { compress } from "./compress.js";
+export { decompress } from "./decompress.js";
