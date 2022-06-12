@@ -1,7 +1,7 @@
 import { readdir } from 'fs/promises';
 import { EOL } from 'os';
 
-const ls = async(url) => {
+export const ls = async(url) => {
  try {
     const currentDir = await readdir(url);
     console.log(currentDir, EOL);
@@ -11,5 +11,3 @@ const ls = async(url) => {
       }
  }
 };
-
-export default ls;
