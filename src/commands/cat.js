@@ -4,7 +4,12 @@ import { EOL } from "os";
 import { splitFilePath } from "../utils/utils.js";
 
 export const cat = async (url, target) => {
-  const [fileToRead] = target.map((item) => item.trim());
+  if (target.length > 1) {
+    console.log('Invalid input', EOL);
+    return;
+  }
+  
+  const [fileToRead] = target;
   const fileToReadArray = fileToRead.split("/");
 
   const [readFileName, readFolderPath] = splitFilePath(url, fileToReadArray);

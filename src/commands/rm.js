@@ -5,12 +5,12 @@ import { rm as remove } from "fs/promises";
 import { splitFilePath } from "../utils/utils.js";
 
 export const rm = async (url, target) => {
-  if (target?.length > 1) {
-    console.log(`Operation failed${EOL}`);
+  if (target.length > 1) {
+    console.log("Invalid input", EOL);
     return;
   }
 
-  const [fileToRemove] = target.map((item) => item.trim());
+  const [fileToRemove] = target;
   const fileToRemoveArray = fileToRemove.split("/");
 
   if (fileToRemove.length <= 1) {

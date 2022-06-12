@@ -5,13 +5,14 @@ import { realpath } from "fs";
 import { splitFilePath } from "../utils/utils.js";
 
 export const rn = async (url, target) => {
-  if (target.length <= 1) {
-    console.log(`Operation failed${EOL}`);
+  if (target.length > 2) {
+    console.log('Invalid input', EOL);
     return;
   }
 
-  const [originFilePath, newFileName] = target.map((item) => item.trim());
-  const [renamedFile, folderPath] = splitFilePath(url, originFilePath);
+  const [originFilePath, newFileName] = target;
+  const originFileArray = originFilePath.split('/');
+  const [renamedFile, folderPath] = splitFilePath(url, originFileArray);
 
   try {
     realpath(folderPath);

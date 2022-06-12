@@ -3,7 +3,12 @@ import { realpath } from "fs/promises";
 import { EOL } from "os";
 
 export const cd = async (url, target) => {
-  const targetPath = target.map((item) => item.trim()).join(" ");
+  if (target.length > 1) {
+    console.log('Invalid input', EOL);
+    return;
+  }
+
+  const targetPath = target.join(" ");
 
   const isAbsolutePath = isAbsolute(targetPath);
   const pathToFolder = isAbsolutePath ? targetPath : path.join(url, targetPath);

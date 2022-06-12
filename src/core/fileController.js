@@ -20,8 +20,8 @@ const COMMANDS = {
   add: (url, newFile) => add(url, newFile),
   cp: (url, file) => cp(url, file),
   mv: (url, file) => mv(url, file),
-  ls: (url) => ls(url),
-  up: (url) => up(url),
+  ls: (url, params) => ls(url, params),
+  up: (url, params) => up(url, params),
   cd: (url, nextFolder) => cd(url, nextFolder),
   rn: (url, params) => rn(url, params),
   rm: (url, removeFilepath) => rm(url, removeFilepath),
@@ -33,8 +33,10 @@ const COMMANDS = {
 
 const runCommand = (command, url, params) => {
   const inputCommand = command.trim();
+  const paramsArray = params.map(item => item.trim()).filter(item => item);
+
   if (Object.keys(COMMANDS).includes(inputCommand)) {
-    return COMMANDS[inputCommand](url, params);
+    return COMMANDS[inputCommand](url, paramsArray);
   } else {
     console.log(`Invalid input ${EOL}`);
   }

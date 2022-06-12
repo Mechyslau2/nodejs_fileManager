@@ -7,12 +7,12 @@ import { pipeline } from "stream/promises";
 import { splitFilePath, getTargetFolderPath } from "../utils/utils.js";
 
 export const cp = async (url, target, deleteFlag = false) => {
-  if (target.length <= 1) {
-    console.log(`Operation failed${EOL}`);
+  if (target.length > 2) {
+    console.log('Invalid input', EOL);
     return;
   }
 
-  const [copedFile, targetFolder] = target.map((item) => item.trim());
+  const [copedFile, targetFolder] = target;
   const copedFileArray = copedFile.split('/');
 
   const [copedFileName, copedFolderPath] = splitFilePath(url, copedFileArray);

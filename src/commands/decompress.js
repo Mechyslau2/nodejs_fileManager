@@ -9,7 +9,7 @@ import { splitFilePath, getTargetFolderPath } from "../utils/utils.js";
 
 export const decompress = async (url, params) => {
   if (params.length > 2) {
-    console.log(`Operation failed${EOL}`);
+    console.log('Invalid input', EOL);
     return;
   }
 

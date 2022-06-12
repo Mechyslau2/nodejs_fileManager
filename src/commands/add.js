@@ -4,13 +4,13 @@ import { lstat } from "fs/promises";
 import { EOL } from "os";
 
 export const add = async (url, target) => {
-  const [fileName] = target.map((item) => item.trim());
-
   if (target.length > 1) {
     console.log('Invalid input', EOL);
     return;
   }
 
+  const [fileName] = target;
+  
   try {
     const file = await lstat(path.join(url, fileName));
     if (file.isFile()) {
